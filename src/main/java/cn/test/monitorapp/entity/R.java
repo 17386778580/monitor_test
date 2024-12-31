@@ -13,9 +13,7 @@ import java.io.Serializable;
  * @param <T>
  * @author
  */
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Accessors(chain = true)
 public class R<T> implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -23,24 +21,17 @@ public class R<T> implements Serializable {
     /**
      * 返回标记：成功标记=0，失败标记=1
      */
-    @Getter
-    @Setter
 
     private int code;
 
     /**
      * 返回信息
      */
-    @Getter
-    @Setter
     private String msg;
 
     /**
      * 数据
      */
-    @Getter
-    @Setter
-
     private T data;
 
     public static <T> R<T> ok() {

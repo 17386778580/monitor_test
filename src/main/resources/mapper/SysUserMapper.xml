@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.test.monitorapp.mapper.SysUserMapper">
-
+    <select id="pageUser" resultType="cn.test.monitorapp.Dto.SysUserDto">
+        select u.*, dept.dept_name , r.role_name from sys_user u
+        left join sys_dept dept on u.dept_id = dept.dept_id
+        left join sys_role r on u.role_id = r.role_id
+        <where>
+            <if test="param.userId != null and param.userId != ''">
+                and u.user_id like concat('%', #{param.userId}, '%')
+            </if>
+            <if test="param.userName != null and param.userName != ''">
+                and u.username like concat('%', #{param.userName}, '%')
+            </if>
+            <if test="param.phone != null and param.phone != ''">
+                and u.phone like concat('%', #{param.phone}, '%')
+            </if>
+            <if test="param.email != null and param.email != ''">
+                and u.email like concat('%', #{param.email}, '%')
+            </if>
+            <if test="param.departmentId != null and param.departmentId != ''">
+                and u.dept_id like concat('%', #{param.departmentId}, '%')
+            </if>
+            <if test="param.roleId != null and param.roleId != ''">
+                and u.role_id like concat('%', #{param.roleId}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

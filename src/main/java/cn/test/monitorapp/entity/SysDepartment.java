@@ -17,61 +17,49 @@ import lombok.Setter;
  * </p>
  *
  * @author liumou
- * @since 2024-12-24
+ * @since 2024-12-25
  */
 @Data
-@TableName("sys_user")
-public class SysUser implements Serializable {
+@TableName("sys_dept")
+public class SysDepartment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户id
-     */
-    @TableId(value = "user_id", type = IdType.AUTO)
-    private Integer userId;
-
-    /**
-     * 用户名称
-     */
-    @TableField("username")
-    private String username;
-
-    /**
-     * 用户密码
-     */
-    @TableField("password")
-    private String password;
-
-    /**
-     * 用户手机号
-     */
-    @TableField("phone")
-    private Integer phone;
-
-    /**
-     * 用户身份证
-     */
-    @TableField("id_card")
-    private Integer idCard;
-
-    /**
      * 部门id
      */
-    @TableField("dept_id")
-    private Integer departmentId;
+    @TableId(value = "dept_id", type = IdType.AUTO)
+    private Long departmentId;
 
     /**
-     * 用户邮箱
+     * 部门名称
+     */
+    @TableField("dept_name")
+    private String name;
+
+    /**
+     * 父部门id
+     */
+    @TableField("parent_id")
+    private Long parentId;
+
+    /**
+     * 负责人id
+     */
+    @TableField("leader_user_id")
+    private Long leaderUserId;
+
+    /**
+     * 联系电话
+     */
+    @TableField("phone")
+    private String phone;
+
+    /**
+     * 邮箱
      */
     @TableField("email")
     private String email;
-
-    /**
-     * 用户性别
-     */
-    @TableField("sex")
-    private Byte sex;
 
     /**
      * 创建时间
@@ -84,4 +72,7 @@ public class SysUser implements Serializable {
      */
     @TableField("update_time")
     private LocalDateTime updateTime;
+
+    @TableField("worker_count")
+    private  Integer workerCount;
 }
