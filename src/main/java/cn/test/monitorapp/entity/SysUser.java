@@ -47,7 +47,7 @@ public class SysUser implements Serializable {
      * 用户手机号
      */
     @TableField("phone")
-    private Integer phone;
+    private Long phone;
 
     /**
      * 用户身份证
@@ -59,7 +59,7 @@ public class SysUser implements Serializable {
      * 部门id
      */
     @TableField("dept_id")
-    private Integer departmentId;
+    private Integer departmentId = 12;
 
     /**
      * 用户邮箱

@@ -16,6 +16,6 @@ import org.apache.ibatis.annotations.Update;
  */
 @Mapper
 public interface SysDepartmentMapper extends BaseMapper<SysDepartment> {
-    @Update("update sys_dept set worker_count = worker_count + #{workerCount} where department_id = #{departmentId}")
+    @Update("update sys_dept set worker_count = worker_count + #{workerCount} where dept_id = #{departmentId}")
     int updateWorkerCount(Integer departmentId, Integer workerCount);
 }
