@@ -84,4 +84,10 @@ public class SysUser implements Serializable {
      */
     @TableField("update_time")
     private LocalDateTime updateTime;
+
+    /**
+     * 年龄
+     */
+    @TableField("dept_number")
+    private Integer deptNumber;
 }
